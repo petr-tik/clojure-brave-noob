@@ -15,6 +15,19 @@
     [times elements]
     (println))
 
+(defn dec-maker
+  "takes a value and returns a function that decreases any new number by value"
+  [value]
+  ;; returns a anonymous function that takes takes input instead of % 
+  #(- % value))
+
+
+(defn mapset
+  "takes a sequence and returns a set of unique values"
+  [coll]
+  (map set coll))
+
+
 (def vampire-database
 {
     0 {:makes-blood-puns? false, :has-pulse? true :name "lad"}
@@ -37,15 +50,28 @@
     [social-security-numbers]
     (first (filter vampire?
         (map vampire-related-details social-security-numbers)))
-
     )
 
 
+;; vector of keys needed to create a vampire own map
+(def vamp-keys [:name :glitter-index])
+
+;; conversts string to integer
+(defn str->int
+  [str]
+  (Integer. str))
+
+;; associates a function with each vamp key - 
+;; leave name intact, convert numbers to string
+(def conversions {:name identity
+                  :glitter-index str->int})
+
+(defn convert
+  [vamp-key value]
+  ((get conversions vamp-key) value))
+
+
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
-  (println "I am a little teapot")
-  (solveMeFirst 5 10)
-  (println (error-message :mild))
-  (error-message :hard)
-  (time (vampire-related-details 0)))
+  println "hello"
+  )
