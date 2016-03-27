@@ -98,6 +98,18 @@
   [minimum-glitter records]
   (map :name (glitter-filter minimum-glitter records)))
 
+(defn validate
+  [record]
+  (if (map (fn [x] (contains? record x)) vamp-keys)
+    record 
+    "Doesn't validate"))
+
+(defn append
+  "Adds a new map to a seq of maps"
+  [new-suspect old-suspects]
+  (conj old-suspects (map identity new-suspect)))
+
+
 (defn -main
   [& args]
   println "hello"
