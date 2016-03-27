@@ -93,6 +93,10 @@
   [minimum-glitter records]
   (filter #(>= (:glitter-index %) minimum-glitter) records))
 
+(defn glitter-names
+  "returns a list of names given a hashmap of records and minimum glitter level"
+  [minimum-glitter records]
+  (map :name (glitter-filter minimum-glitter records)))
 
 (defn -main
   [& args]
