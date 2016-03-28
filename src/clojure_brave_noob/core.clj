@@ -110,6 +110,22 @@
   (conj old-suspects (map identity new-suspect)))
 
 
+
+(defn anagram?
+  "Takes 2 words - returns True if they are anagrams, false otherwise"
+  [word1 word2]
+  (if (= (frequencies word1) (frequencies word2))
+    true
+    false
+    ))
+
+(defn anagrams
+  "Takes a target word and a vector of words 
+  Returns a list of anagrams of the target from the vector"
+  [target-word list-of-words]
+  (filter (fn [candidate-word] (anagram? target-word candidate-word)) list-of-words))
+
+
 (defn -main
   [& args]
   println "hello"
