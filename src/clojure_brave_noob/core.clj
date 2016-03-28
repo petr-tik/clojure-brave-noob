@@ -125,6 +125,14 @@
   [target-word list-of-words]
   (filter (fn [candidate-word] (anagram? target-word candidate-word)) list-of-words))
 
+(defn leap?
+  "Takes a year and returns True if leap year, false otherwise"
+  [year]
+  (if (= 0 (mod year 4)) 
+    (if (= 0 (mod year 100)) true false)
+    false
+  ))
+
 
 (defn -main
   [& args]
