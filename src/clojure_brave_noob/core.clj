@@ -110,7 +110,6 @@
   (conj old-suspects (map identity new-suspect)))
 
 
-
 (defn anagram?
   "Takes 2 words - returns True if they are anagrams, false otherwise"
   [word1 word2]
@@ -137,5 +136,4 @@
 (defn -main
   [& args]
   println "hello"
-
   )
