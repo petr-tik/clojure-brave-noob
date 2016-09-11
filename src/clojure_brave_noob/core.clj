@@ -132,8 +132,42 @@
     false
   ))
 
+(defn push-left
+  [deque val]
+  (cons val deque)
+)
+
+(defn push-right
+  [deque val]
+  ()
+)
+
+(defn pop-left
+  [deque]
+)
+
+(defn pop-right
+  [deque]
+)
+
+
+(defn rec-merge
+  "Takes 2 strings, merges them recursively"
+  [str1 str2]
+  (if (= 1 count(str1) count(str2))
+    (str str1 str2)
+    (str (first str1) (first str2) (rec-merge (rest str1) (rest str2)))))
+
+
+(defn solve-rec-merge
+    [& args]
+    (let [str1 (read-line)
+            str2 (read-line)]
+      (println (rec-merge str1 str2))
+      ))
+
 
 (defn -main
   [& args]
   println "hello"
-  )
+)
